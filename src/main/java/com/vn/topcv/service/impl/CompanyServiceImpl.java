@@ -1,6 +1,6 @@
 package com.vn.topcv.service.impl;
 
-import com.vn.topcv.dto.reponse.CompanyGetResponse;
+import com.vn.topcv.dto.response.CompanyGetResponse;
 import com.vn.topcv.dto.request.CompanySavePostRequest;
 import com.vn.topcv.dto.request.CompanyUpdateRequest;
 import com.vn.topcv.entity.Company;

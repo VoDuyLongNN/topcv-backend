@@ -44,5 +44,9 @@ public class JobCategory {
 
   @OneToMany(mappedBy = "jobCategory", fetch = FetchType.EAGER)
   @JsonManagedReference
+  List<PostCompany> postCompanies;
+
+  @OneToMany(mappedBy = "jobCategory", fetch = FetchType.EAGER)
+  @JsonManagedReference
   private Set<Company> companies = new LinkedHashSet<>();
 }

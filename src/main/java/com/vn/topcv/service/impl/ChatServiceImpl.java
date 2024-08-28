@@ -1,9 +1,8 @@
 package com.vn.topcv.service.impl;
 
-import com.vn.topcv.dto.reponse.ChatCreateConversationResponse;
-import com.vn.topcv.dto.reponse.ChatSendMessageResponse;
+import com.vn.topcv.dto.response.ChatCreateConversationResponse;
+import com.vn.topcv.dto.response.ChatSendMessageResponse;
 import com.vn.topcv.dto.request.ChatSendMessageRequest;
-import com.vn.topcv.dto.request.CompanyUpdateRequest;
 import com.vn.topcv.dto.request.ConversationCreateRequest;
 import com.vn.topcv.entity.Company;
 import com.vn.topcv.entity.Conversation;
@@ -20,7 +19,6 @@ import com.vn.topcv.repository.IPersonalRepository;
 import com.vn.topcv.repository.IPostPersonalRepository;
 import com.vn.topcv.service.IChatService;
 import com.vn.topcv.util.ResponseObject;
-import com.vn.topcv.validation.RequestValidation;
 import java.sql.Timestamp;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.vn.topcv.dto.reponse;
+package com.vn.topcv.dto.response;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;

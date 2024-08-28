@@ -1,4 +1,4 @@
-package com.vn.topcv.dto.reponse;
+package com.vn.topcv.dto.response;
 
 import java.io.Serializable;
 import java.sql.Timestamp;

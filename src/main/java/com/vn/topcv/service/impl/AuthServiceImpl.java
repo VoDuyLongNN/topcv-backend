@@ -1,7 +1,7 @@
 package com.vn.topcv.service.impl;
 
-import com.vn.topcv.dto.reponse.UserLoginResponse;
-import com.vn.topcv.dto.reponse.UserRegisterResponse;
+import com.vn.topcv.dto.response.UserLoginResponse;
+import com.vn.topcv.dto.response.UserRegisterResponse;
 import com.vn.topcv.dto.request.UserLogoutRequest;
 import com.vn.topcv.dto.request.UserRegisterRequest;
 import com.vn.topcv.dto.request.UserLoginRequest;

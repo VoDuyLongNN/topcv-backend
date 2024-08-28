@@ -1,4 +1,4 @@
-package com.vn.topcv.dto.reponse;
+package com.vn.topcv.dto.response;
 
 import com.vn.topcv.entity.User;
 import java.util.Date;

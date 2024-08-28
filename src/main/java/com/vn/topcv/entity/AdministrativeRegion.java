@@ -1,5 +1,6 @@
 package com.vn.topcv.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -41,6 +42,7 @@ public class AdministrativeRegion {
   private String codeNameEn;
 
   @OneToMany(mappedBy = "administrativeRegion")
+  @JsonManagedReference
   private Set<Province> provinces = new LinkedHashSet<>();
 
 }

@@ -1,6 +1,6 @@
 package com.vn.topcv.controller;
 
-import com.vn.topcv.dto.reponse.ChatSendMessageResponse;
+import com.vn.topcv.dto.response.ChatSendMessageResponse;
 import com.vn.topcv.dto.request.ChatSendMessageRequest;
 import com.vn.topcv.service.IChatService;
 import org.springframework.beans.factory.annotation.Autowired;

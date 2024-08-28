@@ -1,8 +1,11 @@
 package com.vn.topcv.controller;
 
 import com.vn.topcv.dto.request.PostPersonalGetByIdRequest;
+import com.vn.topcv.service.IDistrictService;
 import com.vn.topcv.service.IPersonalService;
 import com.vn.topcv.service.IPostPersonalService;
+import com.vn.topcv.service.ISalaryService;
+import com.vn.topcv.service.IWardService;
 import com.vn.topcv.util.ResponseObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +26,15 @@ public class PublicController {
 
   @Autowired
   private IPersonalService personalService;
+
+  @Autowired
+  private IDistrictService districtService;
+
+  @Autowired
+  private IWardService wardService;
+
+  @Autowired
+  private ISalaryService salaryService;
 
   @GetMapping("get-all-active")
   public ResponseEntity<ResponseObject> getAllActive(
@@ -51,4 +63,18 @@ public class PublicController {
 	return personalService.getPersonalByPostId(postId);
   }
 
+  @GetMapping("district/get-by-province/{code}")
+  public ResponseEntity<ResponseObject> getDistrictByProvince(@PathVariable String code) {
+	return districtService.findByProvince(code);
+  }
+
+  @GetMapping("ward/get-by-district/{code}")
+  public ResponseEntity<ResponseObject> getWardByDistrict(@PathVariable String code) {
+	return wardService.getByDistrict(code);
+  }
+
+  @GetMapping("salary/get-all")
+  public ResponseEntity<ResponseObject> getAllSalary(){
+	return salaryService.getAll();
+  }
 }

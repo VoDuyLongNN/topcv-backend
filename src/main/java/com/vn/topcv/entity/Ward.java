@@ -6,9 +6,12 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import java.util.LinkedHashSet;
+import java.util.Set;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -45,7 +48,10 @@ public class Ward {
   private String codeName;
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "administrative_unit_id")
-  private AdministrativeUnit administrativeUnit;
+  @JoinColumn(name = "district_code")
+  private District district;
+
+  @OneToMany(mappedBy = "ward")
+  private Set<PostCompany> postCompanies = new LinkedHashSet<>();
 
 }

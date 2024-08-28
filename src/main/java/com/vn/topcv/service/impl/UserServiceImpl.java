@@ -1,9 +1,12 @@
 package com.vn.topcv.service.impl;
 
 import com.vn.topcv.dto.request.UserChangePasswordRequest;
+import com.vn.topcv.entity.Company;
 import com.vn.topcv.entity.Personal;
 import com.vn.topcv.entity.User;
+import com.vn.topcv.entity.enums.ERole;
 import com.vn.topcv.exception.CustomException;
+import com.vn.topcv.repository.ICompanyRepository;
 import com.vn.topcv.repository.IPersonalRepository;
 import com.vn.topcv.repository.ITokenRepository;
 import com.vn.topcv.repository.IUserRepository;
@@ -33,6 +36,9 @@ public class UserServiceImpl implements IUserService {
 
   @Autowired
   private IPersonalRepository personalRepository;
+
+  @Autowired
+  private ICompanyRepository companyRepository;
 
   @Autowired
   private ITokenRepository tokenRepository;
@@ -110,9 +116,6 @@ public class UserServiceImpl implements IUserService {
 	  if (user == null) {
 		throw new CustomException("User not found!");
 	  }
-
-	  Personal personal = personalRepository.findByUserId(user.getUserId())
-		  .orElseThrow(() -> new CustomException("User not found!"));
 
 	  if(file.isEmpty()){
 		throw new CustomException("File name is empty!");

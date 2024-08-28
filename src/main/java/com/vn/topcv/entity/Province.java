@@ -1,14 +1,19 @@
 package com.vn.topcv.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import java.util.LinkedHashSet;
+import java.util.Set;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -47,12 +52,12 @@ public class Province {
   @Column(name = "code_name")
   private String codeName;
 
+  @OneToMany(mappedBy = "province")
+  @JsonManagedReference
+  private Set<District> districts = new LinkedHashSet<>();
+
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "administrative_region_id")
+  @JsonBackReference
   private AdministrativeRegion administrativeRegion;
-
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "administrative_unit_id")
-  private AdministrativeUnit administrativeUnit;
-
 }

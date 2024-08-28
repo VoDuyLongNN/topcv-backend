@@ -1,12 +1,11 @@
 package com.vn.topcv.service.impl;
 
-import com.vn.topcv.dto.reponse.ProvinceGetAllResponse;
+import com.vn.topcv.dto.response.ProvinceGetAllResponse;
 import com.vn.topcv.entity.Province;
 import com.vn.topcv.repository.IProvinceRepository;
 import com.vn.topcv.service.IProvinceService;
 import com.vn.topcv.util.ResponseObject;
 import java.util.List;
-import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

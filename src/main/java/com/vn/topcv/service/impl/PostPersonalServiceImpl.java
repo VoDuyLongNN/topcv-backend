@@ -1,6 +1,6 @@
 package com.vn.topcv.service.impl;
 
-import com.vn.topcv.dto.reponse.PostPersonalGetAllResponse;
+import com.vn.topcv.dto.response.PostPersonalGetAllResponse;
 import com.vn.topcv.dto.request.PostPersonalCreateRequest;
 import com.vn.topcv.dto.request.PostPersonalDeleteByIdRequest;
 import com.vn.topcv.dto.request.PostPersonalGetByIdRequest;
