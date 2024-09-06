@@ -108,7 +108,7 @@ public class PersonalServiceImpl implements IPersonalService {
 		isValid = false;
 	  }
 
-	  if (!RequestValidation.isValidLocalDate(request.getBirthDay())) {
+	  if (!RequestValidation.isValidAndNotFutureLocalDate(request.getBirthDay())) {
 		message += "Birthday is invalid!. ";
 		isValid = false;
 	  }

@@ -52,7 +52,7 @@ public class Province {
   @Column(name = "code_name")
   private String codeName;
 
-  @OneToMany(mappedBy = "province")
+  @OneToMany(mappedBy = "province", fetch = FetchType.EAGER)
   @JsonManagedReference
   private Set<District> districts = new LinkedHashSet<>();
 

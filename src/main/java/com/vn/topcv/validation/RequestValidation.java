@@ -57,7 +57,7 @@ public class RequestValidation {
 	}
   }
 
-  public static boolean isValidLocalDate(String value) {
+  public static boolean isValidAndNotFutureLocalDate(String value) {
 	if (value == null || value.trim().isEmpty()) {
 	  return false;
 	}
@@ -70,6 +70,22 @@ public class RequestValidation {
 	  if (birthDay.isAfter(LocalDate.now())) {
 		return false;
 	  }
+
+	  return true;
+	} catch (DateTimeParseException e) {
+	  return false;
+	}
+  }
+
+  public static boolean isValidLocalDate(String value) {
+	if (value == null || value.trim().isEmpty()) {
+	  return false;
+	}
+
+	DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+	try {
+	  LocalDate birthDay = LocalDate.parse(value, dateFormatter);
 
 	  return true;
 	} catch (DateTimeParseException e) {

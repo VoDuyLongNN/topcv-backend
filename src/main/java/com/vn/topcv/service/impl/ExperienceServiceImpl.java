@@ -1,11 +1,10 @@
 package com.vn.topcv.service.impl;
 
 import com.vn.topcv.dto.response.ExperienceGetAllResponse;
-import com.vn.topcv.dto.response.JobCategoryGetAllResponse;
-import com.vn.topcv.dto.response.PostPersonalGetAllResponse;
-import com.vn.topcv.entity.JobCategory;
-import com.vn.topcv.repository.IJobCategoryRepository;
-import com.vn.topcv.service.IJobCategoryService;
+import com.vn.topcv.dto.response.SalaryGetAllResponse;
+import com.vn.topcv.entity.Experience;
+import com.vn.topcv.repository.IExperienceRepository;
+import com.vn.topcv.service.IExperienceService;
 import com.vn.topcv.util.ResponseObject;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,29 +13,29 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
-public class JobCategoryServiceImpl implements IJobCategoryService {
+public class ExperienceServiceImpl implements IExperienceService {
 
   @Autowired
-  private IJobCategoryRepository jcRepo;
+  private IExperienceRepository experienceRepository;
 
   @Override
   public ResponseEntity<ResponseObject> getAll() {
 	ResponseObject responseObject;
 	HttpStatus status;
 
-	try{
-	  List<JobCategory> jobCategories = jcRepo.findAll();
+	try {
+	  List<Experience> experiences = experienceRepository.findAll();
 
-	  List<JobCategoryGetAllResponse> responses = jobCategories.stream()
-		  .map(jobCategory -> JobCategoryGetAllResponse.builder()
-			  .id(jobCategory.getId().toString())
-			  .type(jobCategory.getType())
+	  List<ExperienceGetAllResponse> responses = experiences.stream()
+		  .map(experience -> ExperienceGetAllResponse.builder()
+			  .id(experience.getId().toString())
+			  .name(experience.getName())
 			  .build())
 		  .toList();
 
 	  responseObject = ResponseObject.builder()
 		  .status(HttpStatus.OK.name())
-		  .message("Get success fully!")
+		  .message("Get all successfully!")
 		  .data(responses)
 		  .build();
 

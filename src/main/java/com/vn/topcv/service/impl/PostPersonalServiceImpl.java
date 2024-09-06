@@ -128,7 +128,7 @@ public class PostPersonalServiceImpl implements IPostPersonalService {
 			.province(province)
 			.workType(eWorkType)
 			.description(request.getDescription())
-			.status(EPostStatus.UNACTIVE)
+			.status(EPostStatus.ACTIVE)
 			.jobCategory(jobCategory)
 			.jobSubCategory(jobSubCategory)
 			.personal(personal)

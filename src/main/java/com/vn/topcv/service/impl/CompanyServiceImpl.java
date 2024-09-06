@@ -306,7 +306,7 @@ public class CompanyServiceImpl implements ICompanyService {
 		isValid = false;
 	  }
 
-	  if (!RequestValidation.isValidLocalDate(request.getEstablishment())) {
+	  if (!RequestValidation.isValidAndNotFutureLocalDate(request.getEstablishment())) {
 		message += "Establishment is invalid!. ";
 		isValid = false;
 	  }

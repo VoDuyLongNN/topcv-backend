@@ -2,6 +2,7 @@ package com.vn.topcv.controller;
 
 import com.vn.topcv.dto.request.PostPersonalGetByIdRequest;
 import com.vn.topcv.service.IDistrictService;
+import com.vn.topcv.service.IExperienceService;
 import com.vn.topcv.service.IPersonalService;
 import com.vn.topcv.service.IPostPersonalService;
 import com.vn.topcv.service.ISalaryService;
@@ -35,6 +36,9 @@ public class PublicController {
 
   @Autowired
   private ISalaryService salaryService;
+
+  @Autowired
+  private IExperienceService experienceService;
 
   @GetMapping("get-all-active")
   public ResponseEntity<ResponseObject> getAllActive(
@@ -76,5 +80,10 @@ public class PublicController {
   @GetMapping("salary/get-all")
   public ResponseEntity<ResponseObject> getAllSalary(){
 	return salaryService.getAll();
+  }
+
+  @GetMapping("experience/get-all")
+  public ResponseEntity<ResponseObject> getAllExperience(){
+	return experienceService.getAll();
   }
 }

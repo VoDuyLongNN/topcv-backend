@@ -1,6 +1,8 @@
 package com.vn.topcv.service.impl;
 
 import com.vn.topcv.dto.request.JobSubCategoryGetAllByJobCategoryRequest;
+import com.vn.topcv.dto.response.JobCategoryGetAllResponse;
+import com.vn.topcv.dto.response.JobSubCategoryGetByJobCategoryId;
 import com.vn.topcv.entity.JobCategory;
 import com.vn.topcv.entity.JobSubCategory;
 import com.vn.topcv.exception.CustomException;
@@ -41,10 +43,17 @@ public class JobSubCategoryServiceImpl implements IJobSubCategoryService {
 	  List<JobSubCategory> jobSubCategoryList = jobSubCategoryRepository.findAllByJobCategory(
 		  jobCategory);
 
+	  List<JobSubCategoryGetByJobCategoryId> responses = jobSubCategoryList.stream()
+		  .map(jobSubCategory -> JobSubCategoryGetByJobCategoryId.builder()
+			  .id(jobSubCategory.getId().toString())
+			  .name(jobSubCategory.getName())
+			  .build())
+		  .toList();
+
 	  responseObject = ResponseObject.builder()
 		  .status(HttpStatus.OK.name())
 		  .message("Get success fully!")
-		  .data(jobSubCategoryList)
+		  .data(responses)
 		  .build();
 
 	  status = HttpStatus.OK;

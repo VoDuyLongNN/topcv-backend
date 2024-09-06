@@ -43,7 +43,7 @@ public class PostCompany {
   private String details;
 
   @Column(name = "quantity")
-  private InternalError quantity;
+  private Integer quantity;
 
   @Column(name = "requirements")
   private String requirements;
